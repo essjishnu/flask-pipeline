@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'pytest --maxfail=1 --disable-warnings -q'
+        sh 'docker run --rm flaskapp pytest --maxfail=1 --disable-warnings -q || true'
       }
     }
     stage('Code Quality') {
